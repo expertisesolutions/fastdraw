@@ -1,0 +1,17 @@
+
+import testing : run ;
+
+project fastdraw ;
+
+alias fastdraw : : : : <include>include <include>evas/common <include>evas/canvas
+ <include>evas/include <cxxflags>-std=c++17
+ ;
+
+lib x11 : : <name>X11 ;
+lib gl : : <name>GL ;
+lib glu : : <name>GLU ;
+
+alias testsuite :
+# [ run tests/test1.cpp fastdraw ]
+ [ run tests/test_gl1.cpp fastdraw x11 gl glu ]
+ ;
