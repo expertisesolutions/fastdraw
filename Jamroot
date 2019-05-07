@@ -10,8 +10,13 @@ alias fastdraw : : : : <include>include <include>evas/common <include>evas/canva
 lib x11 : : <name>X11 ;
 lib gl : : <name>GL ;
 lib glu : : <name>GLU ;
+lib glew : : <name>GLEW ;
+alias glfw : : : : <cxxflags>"`pkg-config --cflags glfw3`" <linkflags>"`pkg-config --libs glfw3`" ;
+alias vulkan : : : : <cxxflags>"`pkg-config --cflags vulkan`" <linkflags>"`pkg-config --libs vulkan`" ;
 
 alias testsuite :
 # [ run tests/test1.cpp fastdraw ]
- [ run tests/test_gl1.cpp fastdraw x11 gl glu ]
+# [ run tests/test_gl1.cpp fastdraw x11 gl glu glew ]
+# [ run tests/opengl1.cpp fastdraw x11 gl glu glew glfw ]
+ [ run tests/test_vulkan1.cpp fastdraw vulkan x11 glfw ]
  ;
