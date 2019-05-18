@@ -4,7 +4,7 @@ import testing : run ;
 project fastdraw ;
 
 alias fastdraw : : : : <include>include <include>evas/common <include>evas/canvas
- <include>evas/include <cxxflags>-std=c++17
+ <include>evas/include <cxxflags>-std=c++17 <linkflags>-lstdc++fs
  ;
 
 alias testsuite :
